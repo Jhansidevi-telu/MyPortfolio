@@ -1,0 +1,352 @@
+:root {
+  --bg: #f0dba5;
+  --text: #151515;
+  --yellow: #edb74d;
+  --red: #eb6666;
+  --green: #6fb18a;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3em;
+
+  background-color: var(--bg);
+  font-family: "Recoleta";
+
+  margin: 0 10em;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: normal;
+  margin: 0;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+p {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body::before,
+body::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 40%;
+}
+
+body::before {
+  background: #8c8c8c;
+  filter: url(#noiseFilter);
+}
+
+/* Blobs */
+.blob-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -2;
+  height: 500px;
+  width: 400px;
+  position: relative;
+  right: 5em;
+}
+
+.blob {
+  border-radius: 100px;
+  filter: blur(60px);
+}
+
+.yellow {
+  background-color: var(--yellow);
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  height: 200px;
+  width: 200px;
+
+  animation: yellow 8s infinite ease;
+}
+
+.green {
+  background-color: var(--green);
+  position: absolute;
+  top: 80px;
+  right: -20px;
+  height: 200px;
+  width: 250px;
+
+  animation: green 8s infinite ease;
+}
+
+.red {
+  background-color: var(--red);
+  position: absolute;
+  right: 0;
+  top: 300px;
+  height: 250px;
+  width: 200px;
+
+  animation: red 8s infinite linear;
+}
+
+@keyframes yellow {
+  0% {
+    top: 200px;
+    left: 100px;
+    transform: scale(1);
+  }
+  30% {
+    top: 200px;
+    left: 150px;
+    transform: scale(1.2);
+  }
+  60% {
+    top: 100px;
+    left: 200px;
+    transform: scale(1.3);
+  }
+  100% {
+    top: 200px;
+    left: 100px;
+    transform: scale(1);
+  }
+}
+
+@keyframes green {
+  0% {
+    top: 80px;
+    right: -20px;
+    transform: scale(1.2);
+  }
+  30% {
+    top: 200px;
+    right: -20px;
+    transform: scale(1);
+  }
+  60% {
+    top: 200px;
+    right: 100px;
+    transform: scale(1);
+  }
+  100% {
+    top: 80px;
+    right: -20px;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes red {
+  0% {
+    top: 250px;
+    right: 0px;
+    transform: scale(1);
+  }
+  30% {
+    top: 150px;
+    right: 150px;
+    transform: scale(1.4);
+  }
+  60% {
+    top: 250px;
+    right: 100px;
+    transform: scale(1);
+  }
+  100% {
+    top: 250px;
+    right: 0px;
+    transform: scale(1);
+  }
+}
+button {
+  padding: 12px 20px;
+  cursor: pointer;
+  border: 0;
+  background-color: black;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  color: white;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  letter-spacing: 3px;
+  background-color: hsl(270, 100%, 0%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(9, 3, 17) 0px 7px 29px 0px;
+}
+
+button:active {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+/* the rest of the page */
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3em;
+}
+.sub-text {
+  text-align: end;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  align-items: center;
+  width: 100%;
+  height: 130%;
+  gap: 3em;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+.hero-text {
+  /* display: flex; */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3em;
+}
+/*Custom social buttons*/
+.arrange {
+  display: flex;
+  margin-top: 50px;
+}
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+.example-2 .icon-content .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -40px;
+}
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #4d4d4d;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+.example-2 .icon-content a:hover {
+  color: white;
+}
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+  background-color: #0072b1;
+}
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+  background-color: #333;
+}
+
+.primary {
+  background-color: var(--text);
+  color: #ded3b6;
+}
+
+@media only screen and (max-width: 1000px) {
+  body {
+    margin: 1em;
+  }
+}
+
+
+  
+
+
+
+
+
+
+
+
